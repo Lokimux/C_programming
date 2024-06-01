@@ -1,15 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About Me</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <section id="about">
-    <h2>About Me</h2>
-    <p>This is where you can write something about yourself.</p>
-  </section>
-</body>
-</html>
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+    int n, i;
+    float num[100], sum = 0.0, mean, std_dev = 0.0;
+
+    printf("Enter the number of elements: ");
+    scanf("%d", &n);
+
+    printf("Enter %d elements:\n", n);
+    for (i = 0; i < n; i++) {
+        scanf("%f", &num[i]);
+        sum += num[i];
+    }
+
+    mean = sum / n;
+
+    for (i = 0; i < n; i++) {
+        std_dev += pow(num[i] - mean, 2);
+    }
+
+    std_dev = sqrt(std_dev / n);
+
+    printf("Sum = %.2f\n", sum);
+    printf("Avg = %.2f\n", mean);
+    printf("Standard Deviation = %.2f\n", std_dev);
+
+    return 0;
+}
+    
